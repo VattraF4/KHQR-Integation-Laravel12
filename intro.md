@@ -20,11 +20,22 @@ composer require khqr-gateway/bakong-khqr-php
 composer require simplesoftwareio/simple-qrcode
 ```
 
+**After Install need to add this to `composer.json`**
+
+````json
+ "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/VattraF4/khqr-gateway.git"
+        }
+    ],
+    ```
+
 ### 2. Database Setup And Controller
 
 ```bash
 php artisan make:model Product -m -c
-```
+````
 
 ### 3. Payment Controller Bakong Integration
 
