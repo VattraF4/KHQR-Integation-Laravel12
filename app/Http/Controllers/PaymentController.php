@@ -12,8 +12,13 @@ use KHQR\Models\IndividualInfo;
 
 class PaymentController extends Controller
 {
-    public function checkout($id)
+    public function checkout(Request $request)
     {
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+        ]);
+
+        $id = $request->input('product_id');
         $product = Product::findOrFail($id);
         // 15 minutes validity from now (Bakong typically accepts 5 to 60 minutes)
         // Most Bakong KHQR PHP wrappers expect Unix epoch timestamp (seconds or milliseconds)

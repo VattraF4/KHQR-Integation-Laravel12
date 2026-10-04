@@ -37,8 +37,9 @@
         ${{ number_format($product->price, 2) }}
     </div>
 
-    <form action="{{ route('checkout', $product->id) }}" method="POST">
+    <form action="{{ route('checkout') }}" method="POST">
         @csrf
+        <input type="hidden" name="product_id" value="{{ $product->id }}">
         <button class="btn btn-success w-100">
             Generate KHQR to Pay
         </button>
